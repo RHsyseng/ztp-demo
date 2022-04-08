@@ -57,7 +57,7 @@ spec:
               - name: enp3s0f1
                 type: ethernet
                 state: down
-                macAddress: "A0:36:9F:D3:EC:0d"
+                macAddress: "A0:36:9F:D3:EC:0D"
                 ipv4:
                   enabled: false
                 ipv6:
@@ -66,5 +66,60 @@ spec:
               config:
                 search:
                 - edge-sno-01.e2e.bos.redhat.com
+                server:
+                - 10.19.4.80
+  - clusterName: "edge-sno-02"
+    networkType: "OVNKubernetes"
+    clusterLabels:
+      common: true
+      group-du-sno: ""
+      sites : "edge-sno-02"
+    clusterNetwork:
+      - cidr: 10.128.0.0/14
+        hostPrefix: 23
+    machineNetwork:
+      - cidr: 10.19.4.192/26
+    serviceNetwork:
+      - 172.30.0.0/16 
+    additionalNTPSources:
+      - 10.19.4.197
+    nodes:
+      - hostName: "edge-sno-02"
+        role: "master"
+        bmcAddress: "idrac-virtualmedia://10.19.0.90/redfish/v1/Systems/System.Embedded.1"
+        bmcCredentialsName:
+          name: "edge-sno-02-bmh-secret"
+        bootMACAddress: "A0:36:9F:D3:EC:B4"
+        bootMode: "UEFI"
+        nodeNetwork:
+          interfaces:
+            - name: enp3s0f0
+              macAddress: "A0:36:9F:D3:EC:B4"
+            - name: enp3s0f1
+              macAddress: "A0:36:9F:D3:EC:B5"
+          config:
+            interfaces:
+              - name: enp3s0f0
+                type: ethernet
+                state: up
+                macAddress: "A0:36:9F:D3:EC:B4"
+                ipv4:
+                  enabled: true
+                  dhcp: true
+                  auto-dns: false
+                ipv6:
+                  enabled: false
+              - name: enp3s0f1
+                type: ethernet
+                state: down
+                macAddress: "A0:36:9F:D3:EC:B5"
+                ipv4:
+                  enabled: false
+                ipv6:
+                  enabled: false
+            dns-resolver:
+              config:
+                search:
+                - edge-sno-02.e2e.bos.redhat.com
                 server:
                 - 10.19.4.80

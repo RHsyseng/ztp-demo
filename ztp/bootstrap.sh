@@ -165,6 +165,11 @@ echo ">> Rendering assets for ${NAMESPACE} in ${TMP_DIR}/${SPOKE_NAMESPACE}"
 render_file ${BASEDIR}/config/namespace-template.yaml ${TMP_DIR}/${SPOKE_NAMESPACE}/${NAMESPACE}-ns.yaml 
 render_file ${BASEDIR}/config/bmh-secret-template.yaml ${TMP_DIR}/${SPOKE_NAMESPACE}/${SPOKE_NAMESPACE}-bmh-secret.yaml 
 render_file ${BASEDIR}/config/pull-secret-template.yaml ${TMP_DIR}/${SPOKE_NAMESPACE}/${NAMESPACE}-pull-secret.yaml 
+export NAMESPACE='edge-sno-02'
+echo ">> Rendering assets for ${NAMESPACE} in ${TMP_DIR}/${SPOKE_NAMESPACE}"
+render_file ${BASEDIR}/config/namespace-template.yaml ${TMP_DIR}/${SPOKE_NAMESPACE}/${NAMESPACE}-ns.yaml 
+render_file ${BASEDIR}/config/bmh-secret-template.yaml ${TMP_DIR}/${SPOKE_NAMESPACE}/${SPOKE_NAMESPACE}-bmh-secret.yaml 
+render_file ${BASEDIR}/config/pull-secret-template.yaml ${TMP_DIR}/${SPOKE_NAMESPACE}/${NAMESPACE}-pull-secret.yaml 
 export NAMESPACE='rh-lab'
 echo ">> Rendering assets for ${NAMESPACE} in ${TMP_DIR}/${SPOKE_NAMESPACE}"
 render_file ${BASEDIR}/config/pull-secret-template.yaml ${TMP_DIR}/${SPOKE_NAMESPACE}/${NAMESPACE}-pull-secret.yaml 
