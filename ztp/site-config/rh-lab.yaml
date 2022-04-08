@@ -29,7 +29,7 @@ spec:
     nodes:
       - hostName: "edge-sno-01"
         role: "master"
-        bmcAddress: "redfish-virtualmedia://10.19.0.89/redfish/v1/Systems/System.Embedded.1"
+        bmcAddress: "idrac-virtualmedia://10.19.0.89/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "edge-sno-01-bmh-secret"
         bootMACAddress: "A0:36:9F:D3:EC:0C"
