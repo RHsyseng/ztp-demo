@@ -50,6 +50,8 @@ spec:
                 macAddress: "A0:36:9F:D3:EC:0C"
                 ipv4:
                   enabled: true
+                  dhcp: true
+                  auto-dns: false
                 ipv6:
                   enabled: false
               - name: enp3s0f1
