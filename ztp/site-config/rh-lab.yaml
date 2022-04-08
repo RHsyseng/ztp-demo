@@ -8,7 +8,7 @@ spec:
   baseDomain: "e2e.bos.redhat.com"
   pullSecretRef:
     name: "rh-lab-pull-secret"
-  clusterImageSetNameRef: "openshift-4.10"
+  clusterImageSetNameRef: "img4.10.5-x86-64-appsub"
   sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD0IFmpMQHlk87299njLxEgMJ3BAVN0zXlPQvE/vT1rHrluD+/vosXNdpzCEMSd3VQHduzXTOhNxYYAEgL3vy9EgCWnofJ96aPTLUz6aNdviltkfwtn8npPQ7ojnsa02ATHUjqI5ZbiQo2BcJScx3bEr/nvlczcuV6QF0EmKTPAEYRM1QQtE3TpozEAjOzElQkMepZc+RxI9k3HoSlWRiZK9o2mu96Y+aaCs9hXlmiYL7fbPVMnN83U3NMAAGqzUXT0QXjdVIuxEEvRYX2vE4LqjAopmTvfLy6c3VvO88w/0nbabQCoiWSTkZ/Wh4Pv0WVAyuahnr99sURQ5j2Zmd2f jparrill@xenomorph.localdomain"
   clusters:
   - clusterName: "edge-sno-01"
