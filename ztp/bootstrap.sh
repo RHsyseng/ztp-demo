@@ -145,8 +145,8 @@ function prepare_env() {
 	check_vars SPOKE_NAMESPACE BMH_USERNAME BMH_PASSWORD PULL_SECRET_PATH KUBECONFIG
 	mkdir -p ${TMP_DIR}/${SPOKE_NAMESPACE}
 	export PULL_SECRET_STRING=\'$(cat ${PULL_SECRET_PATH} | jq -c)\'
-	export BMH_USERNAME=$(echo ${BMH_USERNAME} | base64)
-	export BMH_PASSWORD=$(echo ${BMH_PASSWORD} | base64)
+	export BMH_USERNAME=$(echo -n ${BMH_USERNAME} | base64)
+	export BMH_PASSWORD=$(echo -n ${BMH_PASSWORD} | base64)
 }
 
 export BASEDIR=$(dirname "${0}")
@@ -170,5 +170,7 @@ echo ">> Rendering assets for ${NAMESPACE} in ${TMP_DIR}/${SPOKE_NAMESPACE}"
 render_file ${BASEDIR}/config/pull-secret-template.yaml ${TMP_DIR}/${SPOKE_NAMESPACE}/${NAMESPACE}-pull-secret.yaml 
 render_file ${BASEDIR}/config/namespace-template.yaml ${TMP_DIR}/${SPOKE_NAMESPACE}/${NAMESPACE}-ns.yaml 
 echo ">> Creating objects in Hub cluster"
+oc apply -f ${TMP_DIR}/${SPOKE_NAMESPACE}/${NAMESPACE}-ns.yaml
+oc apply -f ${TMP_DIR}/${SPOKE_NAMESPACE}/${SPOKE_NAMESPACE}-ns.yaml
 oc apply -f ${TMP_DIR}/${SPOKE_NAMESPACE}
 echo ">> Done!" 
