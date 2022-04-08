@@ -1,0 +1,5 @@
+export SPOKE_NAMESPACE=edge-sno-01
+export BMH_USERNAME='lol'
+export BMH_PASSWORD='lol'
+export PULL_SECRET_PATH=/lol
+export KUBECONFIG=~/.ssh/sno0-kubeconfig

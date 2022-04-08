@@ -127,3 +127,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Openshift
+**/pull_secret.json
+**/pull-secret.json
+**/openshift_pull.json
+**/out/**
+**/env
+
