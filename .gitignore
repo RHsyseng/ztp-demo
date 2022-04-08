@@ -133,5 +133,5 @@ dmypy.json
 **/pull-secret.json
 **/openshift_pull.json
 **/out/**
-**/env
+*/env
 
