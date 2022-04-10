@@ -5,6 +5,7 @@ metadata:
   name: "common"
   namespace: "ztp-common"
 spec:
+  remediationAction: enforce
   bindingRules:
     # These policies will correspond to all clusters with this label:
     common: "true"
