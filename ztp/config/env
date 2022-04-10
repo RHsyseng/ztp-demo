@@ -1,5 +1,6 @@
-export SPOKE_NAMESPACE=edge-sno-01
-export BMH_USERNAME='lol'
-export BMH_PASSWORD='lol'
-export PULL_SECRET_PATH=/lol
-export KUBECONFIG=~/.ssh/sno0-kubeconfig
+export SITENAME=alk-lab
+export SPOKE_NAMESPACE=spoke0-cluster
+export BMH_USERNAME=${BMH_USERNAME:-}
+export BMH_PASSWORD=${BMH_PASSWORD:-}
+export PULL_SECRET_PATH=${HOME}/openshift_pull.json
+export KUBECONFIG=/root/.kcli/clusters/test-ci/auth/kubeconfig

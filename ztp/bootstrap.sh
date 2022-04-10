@@ -159,7 +159,7 @@ if [[ "${VAL}" == "validate" ]];then
 	validate_hub
 fi
 
-for NS in "${SPOKE_NAMESPACE}" 'alk-lab'
+for NS in "${SPOKE_NAMESPACE}" "${SITENAME}"
 do
 	export NAMESPACE=${NS}
 	echo ">> Rendering assets for ${NAMESPACE} in ${TMP_DIR}/${NAMESPACE}"
@@ -173,7 +173,7 @@ do
 	export NODE='master2'
 	render_file ${BASEDIR}/config/bmh-secret-template.yaml ${TMP_DIR}/${NAMESPACE}/${NODE}-${NAMESPACE}-bmh-secret.yaml 
 	###
-	render_file ${BASEDIR}/config/pull-secret-template.yaml ${TMP_DIR}/${NAMESPACE}/${NAMESPACE}-pull-secret.yaml 
+	render_file ${BASEDIR}/config/pull-secret-template.yaml ${TMP_DIR}/${NAMESPACE}/${SITENAME}-pull-secret.yaml 
 	oc apply -f ${TMP_DIR}/${NAMESPACE}/${NAMESPACE}-ns.yaml
 	oc apply -f ${TMP_DIR}/${NAMESPACE}
 	echo ">> Done!" 
