@@ -168,9 +168,9 @@ do
 	# BMC Secrets
 	export NODE='master0'
 	render_file ${BASEDIR}/config/bmh-secret-template.yaml ${TMP_DIR}/${NAMESPACE}/${NODE}-${NAMESPACE}-bmh-secret.yaml 
-	export NODE='master0'
+	export NODE='master1'
 	render_file ${BASEDIR}/config/bmh-secret-template.yaml ${TMP_DIR}/${NAMESPACE}/${NODE}-${NAMESPACE}-bmh-secret.yaml 
-	export NODE='master0'
+	export NODE='master2'
 	render_file ${BASEDIR}/config/bmh-secret-template.yaml ${TMP_DIR}/${NAMESPACE}/${NODE}-${NAMESPACE}-bmh-secret.yaml 
 	###
 	render_file ${BASEDIR}/config/pull-secret-template.yaml ${TMP_DIR}/${NAMESPACE}/${NAMESPACE}-pull-secret.yaml 
