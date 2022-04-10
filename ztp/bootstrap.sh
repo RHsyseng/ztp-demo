@@ -159,17 +159,23 @@ if [[ "${VAL}" == "validate" ]];then
 	validate_hub
 fi
 
-for NS in "${SPOKE_NAMESPACE}" 'edge-sno-02' 'rh-lab'
+for NS in "${SPOKE_NAMESPACE}" 'alk-lab'
 do
 	export NAMESPACE=${NS}
 	echo ">> Rendering assets for ${NAMESPACE} in ${TMP_DIR}/${NAMESPACE}"
 	mkdir -p ${TMP_DIR}/${NAMESPACE}
 	render_file ${BASEDIR}/config/namespace-template.yaml ${TMP_DIR}/${NAMESPACE}/${NAMESPACE}-ns.yaml 
-	render_file ${BASEDIR}/config/bmh-secret-template.yaml ${TMP_DIR}/${NAMESPACE}/${NAMESPACE}-bmh-secret.yaml 
+	# BMC Secrets
+	export NODE='master0'
+	render_file ${BASEDIR}/config/bmh-secret-template.yaml ${TMP_DIR}/${NAMESPACE}/${NODE}-${NAMESPACE}-bmh-secret.yaml 
+	export NODE='master0'
+	render_file ${BASEDIR}/config/bmh-secret-template.yaml ${TMP_DIR}/${NAMESPACE}/${NODE}-${NAMESPACE}-bmh-secret.yaml 
+	export NODE='master0'
+	render_file ${BASEDIR}/config/bmh-secret-template.yaml ${TMP_DIR}/${NAMESPACE}/${NODE}-${NAMESPACE}-bmh-secret.yaml 
+	###
 	render_file ${BASEDIR}/config/pull-secret-template.yaml ${TMP_DIR}/${NAMESPACE}/${NAMESPACE}-pull-secret.yaml 
 	oc apply -f ${TMP_DIR}/${NAMESPACE}/${NAMESPACE}-ns.yaml
 	oc apply -f ${TMP_DIR}/${NAMESPACE}
 	echo ">> Done!" 
 	echo
 done
-

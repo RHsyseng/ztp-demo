@@ -1,0 +1,134 @@
+---
+apiVersion: ran.openshift.io/v1
+kind: SiteConfig
+metadata:
+  name: "alk-lab"
+  namespace: "alk-lab"
+spec:
+  baseDomain: "alklabs.com"
+  pullSecretRef:
+    name: "alk-lab-pull-secret"
+  clusterImageSetNameRef: "img4.10.5-x86-64-appsub"
+  sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCrUmU1PrEzRmZB+dffoQMejYvGD6wCe6/VGANY8gUIuGlpNvr9Q/QqocTFaJcoGK9FTTJHwvKzBGMHUfjRbM8jUnoeaRqMZixi+3FNWo/GPeMvGKo/UBhrYLjL5lD4Hnn+KAIEpSWTmEXSfnADYLT2oL2RtZMQQPwXLBkDsRf+uYe9RGVI6VX9LXP1gVMP6Jwer3O3nwO/swA56X1Ne11gF7psa91sC8VkpcyGC0Q5/yo+epXc1ocD0qc5xwWmhjLFu7CSvnu4dz99kx4RrSy5eYJrQ7mRbOPNjKgx4X1+yc/WlROfb2KFKKVyPx57/aIEa1V9lKU6qSdmMB0sU/o3Pwd+MpSbXl8cHQWzT6fumRFig0z4mB57HZTC2Qdy0SeuA6yJTZZgPgJb6xVI5r4Z+L6hNrp6E/L2T/cC9/ei59QyyofgTVXGJ2wXPNtranPIiFm7DWDDprzBL9L4TocQIghW7eGk8HAQ2R+DUVzsmWJXwdIbr3tWMXA3bLwO1nc= root@ztpfw-02.edgeinfra.cloud"
+  clusters:
+  - clusterName: "spoke0-cluster"
+    networkType: "OVNKubernetes"
+    clusterLabels:
+      common: true
+      alk-lab: ""
+      sites : "spoke0-cluster"
+    clusterNetwork:
+      - cidr: 10.128.0.0/14
+        hostPrefix: 23
+    apiVIP: 192.168.150.201
+    ingressVIP: 192.168.150.200
+    serviceNetwork:
+      - 172.30.0.0/16
+    additionalNTPSources:
+      - 192.168.150.1
+    nodes:
+      - hostName: "master0.spoke0-cluster.alklabs.com"
+        role: "master"
+        bmcAddress: "redfish-virtualmedia+http://192.168.150.81:8000/redfish/v1/Systems/3dd9476d-a281-4163-9a65-031227f56811"
+        bmcCredentialsName:
+          name: "master0-spoke0-cluster-bmh-secret"
+        bootMACAddress: "ee:ee:ee:ee:00:0e"
+        bootMode: "UEFI"
+        rootDeviceHints:
+          deviceName: '/dev/vda'
+        nodeNetwork:
+          interfaces:
+            - name: enp1s0
+              macAddress: "ee:ee:ee:ee:00:0e"
+            - name: enp2s0
+              macAddress: "aa:aa:aa:aa:00:0a"
+          config:
+            interfaces:
+              - name: enp1s0
+                type: ethernet
+                state: up
+                macAddress: "ee:ee:ee:ee:00:0e"
+                ipv4:
+                  enabled: true
+                  auto-dns: true
+                  dhcp: true
+                ipv6:
+                  enabled: false
+              - name: enp2s0
+                type: ethernet
+                state: down
+                macAddress: "aa:aa:aa:aa:00:0a"
+                ipv4:
+                  enabled: false
+                ipv6:
+                  enabled: false
+      - hostName: "master1.spoke0-cluster.alklabs.com"
+        role: "master"
+        bmcAddress: "redfish-virtualmedia+http://192.168.150.81:8000/redfish/v1/Systems/06679b4a-0288-4e0a-bcc2-d79dcf07dc52" 
+        bmcCredentialsName:
+          name: "master1-spoke0-cluster-bmh-secret"
+        bootMACAddress: "ee:ee:ee:ee:10:1e"
+        bootMode: "UEFI"
+        rootDeviceHints:
+          deviceName: '/dev/vda'
+        nodeNetwork:
+          interfaces:
+            - name: enp1s0
+              macAddress: "ee:ee:ee:ee:10:1e"
+            - name: enp2s0
+              macAddress: "aa:aa:aa:aa:10:1a"
+          config:
+            interfaces:
+              - name: enp1s0
+                type: ethernet
+                state: up
+                macAddress: "ee:ee:ee:ee:10:1e"
+                ipv4:
+                  enabled: true
+                  auto-dns: true
+                  dhcp: true
+                ipv6:
+                  enabled: false
+              - name: enp2s0
+                type: ethernet
+                state: down
+                macAddress: "aa:aa:aa:aa:10:1a"
+                ipv4:
+                  enabled: false
+                ipv6:
+                  enabled: false
+      - hostName: "master2.spoke0-cluster.alklabs.com"
+        role: "master"
+        bmcAddress: "redfish-virtualmedia+http://192.168.150.81:8000/redfish/v1/Systems/80fc86aa-3f26-4602-8f87-637936d21b97" 
+        bmcCredentialsName:
+          name: "master2-spoke0-cluster-bmh-secret"
+        bootMACAddress: "ee:ee:ee:ee:20:2e"
+        bootMode: "UEFI"
+        rootDeviceHints:
+          deviceName: '/dev/vda'
+        nodeNetwork:
+          interfaces:
+            - name: enp1s0
+              macAddress: "ee:ee:ee:ee:20:2e"
+            - name: enp2s0
+              macAddress: "aa:aa:aa:aa:20:2a"
+          config:
+            interfaces:
+              - name: enp1s0
+                type: ethernet
+                state: up
+                macAddress: "ee:ee:ee:ee:20:2e"
+                ipv4:
+                  enabled: true
+                  auto-dns: true
+                  dhcp: true
+                ipv6:
+                  enabled: false
+              - name: enp2s0
+                type: ethernet
+                state: down
+                macAddress: "aa:aa:aa:aa:20:2a"
+                ipv4:
+                  enabled: false
+                ipv6:
+                  enabled: false
