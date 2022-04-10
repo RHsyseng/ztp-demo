@@ -15,18 +15,24 @@ spec:
     # Create operators policies that will be installed in all clusters
     - fileName: SriovSubscription.yaml
       policyName: "subscriptions-policy"
+      spec:
+        installPlanApproval: Automatic
     - fileName: SriovSubscriptionNS.yaml
       policyName: "subscriptions-policy"
     - fileName: SriovSubscriptionOperGroup.yaml
       policyName: "subscriptions-policy"
     - fileName: PtpSubscription.yaml
       policyName: "subscriptions-policy"
+      spec:
+        installPlanApproval: Automatic
     - fileName: PtpSubscriptionNS.yaml
       policyName: "subscriptions-policy"
     - fileName: PtpSubscriptionOperGroup.yaml
       policyName: "subscriptions-policy"
     - fileName: PaoSubscription.yaml
       policyName: "subscriptions-policy"
+      spec:
+        installPlanApproval: Automatic
     - fileName: PaoSubscriptionNS.yaml
       policyName: "subscriptions-policy"
     - fileName: PaoSubscriptionOperGroup.yaml
@@ -37,11 +43,15 @@ spec:
       policyName: "subscriptions-policy"
     - fileName: ClusterLogSubscription.yaml
       policyName: "subscriptions-policy"
+      spec:
+        installPlanApproval: Automatic
     - fileName: StorageNS.yaml
       policyName: "subscriptions-policy"
     - fileName: StorageOperGroup.yaml
       policyName: "subscriptions-policy"
     - fileName: StorageSubscription.yaml
       policyName: "subscriptions-policy"
+      spec:
+        installPlanApproval: Automatic
     - fileName: ReduceMonitoringFootprint.yaml
       policyName: "config-policy"
