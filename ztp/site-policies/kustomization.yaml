@@ -1,0 +1,5 @@
+generators:
+  - alk-lab.yaml
+
+resources:
+  - ns.yaml

@@ -16,6 +16,7 @@ spec:
     clusterLabels:
       common: true
       alk-lab: ""
+      du-profile: "v4.10"
       sites : "spoke0-cluster"
     clusterNetwork:
       - cidr: 10.128.0.0/14
