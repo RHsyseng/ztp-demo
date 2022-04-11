@@ -30,7 +30,7 @@ spec:
     nodes:
       - hostName: "master0.spoke0-cluster.alklabs.com"
         role: "master"
-        bmcAddress: "redfish-virtualmedia+http://192.168.150.81:8000/redfish/v1/Systems/3dd9476d-a281-4163-9a65-031227f56811"
+        bmcAddress: "redfish-virtualmedia+http://192.168.150.81:8000/redfish/v1/Systems/0dc03d37-26d8-48b4-aa35-8f9d478be756"
         bmcCredentialsName:
           name: "master0-spoke0-cluster-bmh-secret"
         bootMACAddress: "ee:ee:ee:ee:00:0e"
@@ -65,7 +65,7 @@ spec:
                   enabled: false
       - hostName: "master1.spoke0-cluster.alklabs.com"
         role: "master"
-        bmcAddress: "redfish-virtualmedia+http://192.168.150.81:8000/redfish/v1/Systems/06679b4a-0288-4e0a-bcc2-d79dcf07dc52" 
+        bmcAddress: "redfish-virtualmedia+http://192.168.150.81:8000/redfish/v1/Systems/ab6421be-319b-4286-a26a-50731b9a5389" 
         bmcCredentialsName:
           name: "master1-spoke0-cluster-bmh-secret"
         bootMACAddress: "ee:ee:ee:ee:10:1e"
@@ -100,7 +100,7 @@ spec:
                   enabled: false
       - hostName: "master2.spoke0-cluster.alklabs.com"
         role: "master"
-        bmcAddress: "redfish-virtualmedia+http://192.168.150.81:8000/redfish/v1/Systems/80fc86aa-3f26-4602-8f87-637936d21b97" 
+        bmcAddress: "redfish-virtualmedia+http://192.168.150.81:8000/redfish/v1/Systems/f7b91d38-e233-4cdb-8b03-e40468ac0dd7" 
         bmcCredentialsName:
           name: "master2-spoke0-cluster-bmh-secret"
         bootMACAddress: "ee:ee:ee:ee:20:2e"
